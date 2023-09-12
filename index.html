@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Vue slider</title>
 </head>
+
 <body>
 
 
@@ -16,9 +20,8 @@
             <div class="slider-wrapper" tabindex="0">
 
                 <div class="item">
-                    <img :src="slides[activeImage].image"
-                            :alt="slides[activeImage].title" />
-                            
+                    <img :src="slides[activeImage].image" :alt="slides[activeImage].title" />
+
                     <div class="text">
                         <h3>{{slides[activeImage].title}}</h3>
                         <p>
@@ -30,7 +33,19 @@
                 <div class="thumbs">
                     <div class="prev" @click="prev()"></div>
                     <div class="next" @click="next()"></div>
-                    <div class="thumb active">
+
+
+
+                    <div v-for="(slide, index) in slides" class="thumb" :class="index == activeImage ? 'active' : ''" @click="featuredImage(index)">
+
+                        <img :src="slides[index].image" :key="index" :alt="slide.title" />
+
+                    </div>
+
+
+
+
+                    <!-- <div v-for="image in slides" class="thumb active">
                         <img src="./assets/img/01.webp" alt="Svezia" />
                     </div>
                     <div class="thumb">
@@ -44,7 +59,7 @@
                     </div>
                     <div class="thumb">
                         <img src="./assets/img/05.webp" alt="Avengers" />
-                    </div>
+                    </div> -->
                 </div>
 
             </div>
@@ -52,9 +67,10 @@
 
     </div>
 
-    
+
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="text/javascript" src="./assets/js/main.js"></script>
 </body>
+
 </html>

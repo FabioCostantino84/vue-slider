@@ -62,6 +62,10 @@ createApp({
             console.log(this.activeImage);
         },
 
+        featuredImage(index) {
+            this.activeImage = index
+        },
+
     }
 }).mount('#app')
 
